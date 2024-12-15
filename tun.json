@@ -31,6 +31,7 @@
    "rules": 
    [
      {"outbound": "any", "server": "dns_direct", "disable_cache": true},
+     {"domain_suffix": ["micu.hk"], "server": "dns_direct"},
      {"clash_mode": "Direct", "server": "dns_direct"},
      {"clash_mode": "Global", "server": "dns_proxy"},
      {"rule_set": "geosite-cn", "action": "route","server": "dns_direct"},
@@ -99,6 +100,7 @@
    "rules": 
    [
      {"action": "sniff"},
+     {"domain_suffix": ["micu.hk"], "outbound": "🎯 全球直连"},
      {"protocol": "dns", "action": "hijack-dns"},
      {"clash_mode": "direct", "outbound": "🎯 全球直连"},
      {"clash_mode": "global", "outbound": "GLOBAL"},
