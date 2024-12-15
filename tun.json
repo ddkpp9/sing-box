@@ -100,7 +100,7 @@
    "rules": 
    [
      {"action": "sniff"},
-     {"domain_suffix": ["micu.hk"], "outbound": "direct"},
+     {"domain_suffix": ["micu.hk"], "outbound": "🎯 全球直连"},
      {"protocol": "dns", "action": "hijack-dns"},
      {"clash_mode": "direct", "outbound": "🎯 全球直连"},
      {"clash_mode": "global", "outbound": "GLOBAL"},
