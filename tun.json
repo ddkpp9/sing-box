@@ -25,16 +25,27 @@
     "servers": [
      {"tag": "dns_direct", "address": "218.104.111.114", "address_strategy": "ipv4_only", "strategy": "ipv4_only", "detour": "🎯 全球直连"},
      {"tag": "dns_proxy", "address": "tls://8.8.8.8", "address_strategy": "ipv4_only", "strategy": "ipv4_only", "detour": "🚀 节点选择"}
+     {"tag": "fakeip", "address": "fakeip"},
+     {"tag": "block", "address": "rcode://success"}
     ],
     "rules": [
      {"outbound": "any", "server": "dns_direct", "disable_cache": true},
-     {"clash_mode": "Direct", "server": "dns_direct"},
-     {"clash_mode": "Global", "server": "dns_proxy"},
+     {"clash_mode": "direct", "server": "dns_direct"},
+     {"clash_mode": "global", "server": "dns_proxy"},
      {"rule_set": "geosite-cn", "server": "dns_direct"},
+     {"query_type": ["A", "AAAA"], "rule_set": "geosite-geolocation-!cn", "server": "fakeip"},
      {"rule_set": "geosite-geolocation-!cn", "server": "dns_proxy"}
+     {"query_type": ["A", "AAAA"], "server": "fakeip"} 
     ],
+    "fakeip": {
+      "enabled": true,
+      "inet4_range": "198.18.0.0/15",
+      "inet6_range": "fc00::/18"
+    },
    "final": "dns_proxy",
-   "strategy": "ipv4_only"
+   "independent_cache": true,
+   "strategy": "prefer_ipv4"
+    
   },
 
 "inbounds": [
