@@ -34,7 +34,9 @@
      {"clash_mode": "Global", "server": "dns_proxy"},
      {"domain_suffix": "micu.hk", "server": "dns_direct"},
      {"rule_set": "geosite-cn", "server": "dns_direct"},
+     {"query_type": ["A", "AAAA"], "rule_set": "geosite-geolocation-!cn", "server": "fakeip"},
      {"rule_set": "geosite-geolocation-!cn", "server": "dns_proxy"}
+     {"query_type": ["A", "AAAA"], "server": "fakeip"} 
     ],
         "fakeip": 
     {
